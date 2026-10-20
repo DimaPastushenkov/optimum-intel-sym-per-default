@@ -604,6 +604,77 @@ _DEFAULT_4BIT_WQ_CONFIGS = {
     },
 }
 
+_SYMMETRIC_INT4_DEFAULT_MODEL_IDS = (
+    "BioMistral/BioMistral-7B-SLERP",
+    "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+    "LGAI-EXAONE/EXAONE-4.0-1.2B",
+    "google/gemma-2-9b-it",
+    "google/gemma-3-1b-it",
+    "google/gemma-3-4b-it",
+    "google/gemma-3n-E2B-it",
+    "google/gemma-3n-E4B-it",
+    "google/gemma-4-12B-it",
+    "google/gemma-4-E2B-it",
+    "openai/gpt-oss-20b",
+    "ibm-granite/granite-4.0-h-micro",
+    "LiquidAI/LFM2-1.2B",
+    "LiquidAI/LFM2.5-1.2B-Instruct",
+    "meta-llama/Llama-2-13b-chat-hf",
+    "meta-llama/Llama-2-7b-chat-hf",
+    "meta-llama/Meta-Llama-3-8B-Instruct",
+    "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "meta-llama/Llama-3.2-1B-Instruct",
+    "meta-llama/Llama-3.2-3B-Instruct",
+    "openbmb/MiniCPM-1B-sft-bf16",
+    "openbmb/MiniCPM3-4B",
+    "openbmb/MiniCPM4-0.5B",
+    "openbmb/MiniCPM4-8B",
+    "mistralai/Mistral-7B-Instruct-v0.2",
+    "mistralai/Mistral-7B-Instruct-v0.3",
+    "microsoft/Phi-3-mini-4k-instruct",
+    "microsoft/Phi-3.5-mini-instruct",
+    "microsoft/Phi-4-mini-instruct",
+    "microsoft/Phi-4-mini-reasoning",
+    "microsoft/Phi-4-reasoning",
+    "Qwen/Qwen-7B-Chat",
+    "Qwen/Qwen2-7B-Instruct",
+    "Qwen/Qwen2.5-1.5B-Instruct",
+    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen2.5-7B-Instruct-1M",
+    "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+    "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen/Qwen2.5-Coder-3B-Instruct",
+    "Qwen/Qwen3-8B",
+    "Qwen/Qwen3.5-0.8B",
+    "Qwen/Qwen3.5-9B",
+    "HuggingFaceTB/SmolLM3-3B",
+    "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "OpenGVLab/InternVL2-4B",
+    "openbmb/MiniCPM-o-2_6",
+    "openbmb/MiniCPM-V-2_6",
+    "openbmb/MiniCPM-V-4_5",
+    "microsoft/Phi-3.5-vision-instruct",
+    "microsoft/Phi-4-multimodal-instruct",
+    "Qwen/Qwen2-VL-7B-Instruct",
+    "Qwen/Qwen2.5-VL-3B-Instruct",
+    "Qwen/Qwen2.5-VL-7B-Instruct",
+    "Qwen/Qwen3-VL-4B-Instruct",
+)
+_DEFAULT_4BIT_WQ_CONFIGS.update(
+    {
+        model_id: {
+            "bits": 4,
+            "sym": True,
+            "group_size": 128,
+            "ratio": 1.0,
+        }
+        for model_id in _SYMMETRIC_INT4_DEFAULT_MODEL_IDS
+    }
+)
+
 _DEFAULT_8BIT_WQ_CONFIGS = {
     "Qwen/Qwen2.5-Coder-3B-Instruct": {"bits": 8, "sym": False, "dq_group_size": 128},
     "diffusers/LTX-2.3-Diffusers": {
